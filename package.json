@@ -1,7 +1,9 @@
 {
   "name": "xm-dev-helper",
-  "private": true,
   "version": "0.0.0",
+  "description": "2023 鲜沐前端helper",
+  "main": "",
+  "author": "鲜沐科技fe",
   "scripts": {
     "dev": "vite --mode development & pnpm tool",
     "tool": "node tools/node-server/index.js",
@@ -55,5 +57,7 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-eslint-parser": "^8.3.0",
     "vue-tsc": "^0.34.16"
-  }
+  },
+  "devDependencies": {}
+    
 }
