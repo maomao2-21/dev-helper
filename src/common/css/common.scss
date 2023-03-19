@@ -1,0 +1,75 @@
+//全局样式
+.hidden {
+  display: none;
+}
+.flex {
+  display: flex;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+
+.leading-32 {
+  line-height: 32px;
+}
+.leading-22 {
+  line-height: 22px;
+}
+.leading-20 {
+  line-height: 20px;
+}
+
+@for $i from 1 through 32 {
+  .m-#{$i} {
+    margin: ($i) + px;
+  }
+  .p-#{$i} {
+    padding: ($i) + px;
+  }
+  .mt-#{$i} {
+    margin-top: ($i) + px;
+  }
+  .mb-#{$i} {
+    margin-bottom: ($i) + px;
+  }
+  .ml-#{$i} {
+    margin-left: ($i) + px;
+  }
+  .mr-#{$i} {
+    margin-right: ($i) + px;
+  }
+  .mx-#{$i} {
+    margin-right: ($i) + px;
+    margin-left: ($i) + px;
+  }
+  .my-#{$i} {
+    margin-top: ($i) + px;
+    margin-bottom: ($i) + px;
+  }
+  .pt-#{$i} {
+    padding-top: ($i) + px;
+  }
+  .pb-#{$i} {
+    padding-bottom: ($i) + px;
+  }
+  .pl-#{$i} {
+    padding-left: ($i) + px;
+  }
+  .pr-#{$i} {
+    padding-right: ($i) + px;
+  }
+  .px-#{$i} {
+    padding-right: ($i) + px;
+    padding-left: ($i) + px;
+  }
+  .py-#{$i} {
+    padding-top: ($i) + px;
+    padding-bottom: ($i) + px;
+  }
+}
