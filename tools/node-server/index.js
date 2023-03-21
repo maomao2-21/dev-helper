@@ -46,7 +46,6 @@ router.get('/fe-dev/apis/tree', (req, res) => {
   const projectPath = req.query.projectPath;
   try{
     const data=getTreeData(projectPath)
-    console.log(data)
     res.json({
       data ,
       code:200
@@ -61,7 +60,7 @@ router.get('/fe-dev/apis/tree', (req, res) => {
 
 server.use('/', router)
 
-module.exports = server.listen(18066, 'localhost', function (err) {
+module.exports = server.listen(10086, 'localhost', function (err) {
   if (err) {
     console.log(err)
     return

@@ -8,11 +8,11 @@
     "helper": "bin/helper.js"
   },
   "scripts": {
-    "dev": "vite --mode development & pnpm tool",
+    "dev": "vite --mode development & npm run tool",
     "tool": "node tools/node-server/index.js",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
-  },
+  }, 
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
     "@types/js-cookie": "^3.0.2",
