@@ -2,20 +2,20 @@
 import { FormInstance, message } from 'ant-design-vue'
 import axios from 'axios'
 import { onMounted, ref, toRaw, watch } from 'vue'
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
 
 const formRef = ref<FormInstance>()
-  const route = useRoute() 
+const route = useRoute()
 // const plainOptions = ['新增', '导出', '导入', '下载']
-const containerOptions = [ 
-  { 
+const containerOptions = [
+  {
     label: '一级标签',
-    value: 'TabMenu' ,
-  },  
+    value: 'TabMenu',
+  },
   {
     label: '二级标签',
     value: 'SubTabMenu',
-  },  
+  },
   {
     label: '标题',
     value: 'Title',
@@ -58,7 +58,7 @@ const onFinish = (values: any) => {
       ...values,
       apiPath,
       listType: 'list',
-      projectPath: route.query.projectPath
+      projectPath: route.query.projectPath,
     }
     const res = await axios.post('/fe-dev/clist', data)
     if (res.data.code === 200) {
@@ -69,11 +69,10 @@ const onFinish = (values: any) => {
   })
 }
 const getTreeData = async () => {
-  const { data  } = await axios.get('/fe-dev/apis/tree?projectPath='+route.query.projectPath)
-  if(data.code===200){
+  const { data } = await axios.get('/fe-dev/apis/tree?projectPath=' + route.query.projectPath)
+  if (data.code === 200) {
     treeData.value = data.data[0].children
-  }else message.error(data.msg)
-   
+  } else message.error(data.msg)
 }
 onMounted(() => {
   getTreeData()
@@ -129,8 +128,9 @@ const select = (a, b, c) => {
     <!-- <a-form-item label="net文件的路径 二选一">
       <a-tree v-model:selectedKeys="selectedKeys" showLine :treeData="treeData" @select="select" />
     </a-form-item> -->
-
-    <a-button type="primary" htmlType="submit">生成</a-button>
+    <a-row justify="center">
+      <a-button type="primary" htmlType="submit">生成</a-button>
+    </a-row>
   </a-form>
 </template>
 

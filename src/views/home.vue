@@ -10,8 +10,6 @@ const config = ref([
 
 const activeKey = ref('list')
 
- 
-
 const onClose = () => {
   visible.value = false
 }
@@ -27,15 +25,13 @@ const layout = {
 </script>
 
 <template>
-<div class="flex" style="height: 100%">
-      <a-tabs v-model:activeKey="activeKey" contentWrapperStyle="display:none" class="tabs" tabPosition="left" animated>
-        <a-tab-pane v-for="item in config" :key="item.name" :tab="item.title" />
-      </a-tabs>
+  <div class="flex" style="height: 100%">
+    <a-tabs v-model:activeKey="activeKey" contentWrapperStyle="display:none" class="tabs" tabPosition="left" animated>
+      <a-tab-pane v-for="item in config" :key="item.name" :tab="item.title" />
+    </a-tabs>
 
-      <div v-for="item in config" :key="item.name" class="p-10 content">
-        <List v-if="item.name === 'list'" :layout="layout" />
-      </div>
-    </div>
+    <List v-if="activeKey === 'list'" :layout="layout" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

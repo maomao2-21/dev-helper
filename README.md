@@ -5,22 +5,16 @@
 ## 🚀 使用
 
 ```
-pnpm i @xm-fe/xm-pc-base
+pnpm i  xm-dev-helper -g
+helper 
 
 ```
+### 0.0.4
+- init
 
-### 0.0.3
-- fix window不走预编译
-  
 
-### 0.0.2
-- bin 命令修改路径
-  
 
-### 0.0.1
-- 添加bin命令
-  
 
-### 0.0.0
-init 项目
-
+# 存在的问题
+- 自动open helper不触发
+- npm run dev 需要支持windows

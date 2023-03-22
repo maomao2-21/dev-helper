@@ -28,21 +28,21 @@ export default defineConfig(({ command, mode }) => {
       host: true, // host: "0.0.0.0"
       /** 端口号 */
       port: 3456,
-      /** 是否自动打开浏览器 */
+      /** 是否自动打开浏览器 还有点问题 */
       open: true,
       /** 跨域设置允许 */
       cors: true,
       /** 端口被占用时，是否直接退出 */
       strictPort: false,
       /** 接口代理 */
-      proxy: { 
+      proxy: {
         '/fe-dev': {
           target: 'http://localhost:10086',
           changeOrigin: true,
           logLevel: 'debug',
         },
       },
-    }, 
+    },
     build: {
       target: 'es2015',
       brotliSize: false,
@@ -63,8 +63,8 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       rollupOptions: {
-        main: "./src/main.ts", 
-      },  
+        main: './src/main.ts',
+      },
     },
     /** vite 插件 */
     plugins: [
@@ -72,7 +72,12 @@ export default defineConfig(({ command, mode }) => {
       vueJsx(),
       legacy({
         targets: ['defaults', 'not IE 11'],
-      }), 
+      }),
+      // svg
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
+        symbolId: 'icon-[dir]-[name]',
+      }),
     ],
   }
 })
