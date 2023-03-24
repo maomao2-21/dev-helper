@@ -9,6 +9,9 @@ pnpm i  xm-dev-helper -g
 helper 
 
 ```
+### 0.0.5
+-  featapifox模型导入
+-  支持windows
 ### 0.0.4
 - init
 
@@ -18,6 +21,4 @@ npm config set registry https://registry.npm.taobao.org
 # 配置npm全局恢复官方镜像源
 npm config set registry https://registry.npmjs.org
 
-# 存在的问题
-- 自动open helper不触发
-- npm run dev 需要支持windows
+ 
