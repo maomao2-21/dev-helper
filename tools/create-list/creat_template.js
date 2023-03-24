@@ -95,7 +95,7 @@ const list = template => {
   //   : ''
   const [TitleButton, TableLeftButton, TableRightButton] = ['TitleButton', 'TableLeftButton', 'TableRightButton']
     // .filter(type => container.includes(type))
-    .map(type => container.includes(type)?generateButton(type, template[`${type}Num`]):undefined)
+    .map(type => (container.includes(type) ? generateButton(type, template[`${type}Num`]) : undefined))
   const buttonscript = `
   ${TitleButton?.script || ''}
   ${TableLeftButton?.script || ''}
@@ -108,21 +108,20 @@ const list = template => {
   import { ref } from 'vue';
   //import { formOptions, CustomFilterConf} from '../list'
   import { useList } from '@xm-fe/xm-pc-base'
-  import { CardLayout } from '@xm-fe/xm-pc-base'
   import { TableColumnProps } from 'ant-design-vue';
   ${generateImports(Netall, exportCurType)}
   const { dataSource, onSearch, handleTableChange, pagination, loading, reload } = useList(${Netall && Netall.Function})
   ${TabMenu && TabMenu.script}
   ${SubTabMenu && SubTabMenu.script}
-  const tableColumns: TableColumnProps<${Netall && Netall.Res}>[] =
-  [${tableColumns||''}]
+  const tableColumns: TableColumnProps<${Netall && (Netall.importRes || Netall.Res)}>[] =
+  [${tableColumns || ''}]
    ${buttonscript || ''}
    ${generateSCustomFilterScript()}
   </script>
   <template>
    ${TabMenu && TabMenu.html}
   <CardLayout ${Title}>
-   ${TitleButton && TitleButton.html||''}
+   ${(TitleButton && TitleButton.html) || ''}
     <SCustomFilter
       :loading="loading"
       :customConfigList="CustomFilterConf"
@@ -186,8 +185,10 @@ function buttonsHtml(buttons) {
 
 function generateImports(Netall, exportCurType) {
   let imports = ''
+
   if (exportCurType.length > 0) {
-    imports += ` import { ${exportCurType.join()} } from '${Netall.filePath.replace('.ts', '')}';\n `
+    const result = exportCurType.filter(item => item !== undefined && item != 'any')
+    imports += ` import { ${result.join()} } from '${Netall.filePath.replace('.ts', '')}';\n `
   }
   if (Netall && Netall.extraImport) {
     imports += Netall.extraImport.map(item => ` ${item};\n`).join('')
@@ -326,7 +327,6 @@ function generateButton(type, buttonNumber) {
   return { html, script }
 }
 function generateTableToolbar(LeftButton, RightButton) {
-  
   const lefthtml = LeftButton?.html
     ? `<div style="text-align: left">
   ${LeftButton.html}

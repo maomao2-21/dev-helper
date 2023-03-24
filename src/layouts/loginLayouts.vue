@@ -87,7 +87,7 @@ export default {
     }
 
     .user-layout-content {
-      height: 100%;
+      // height: 100%;
 
       .top {
         text-align: center;

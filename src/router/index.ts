@@ -11,22 +11,21 @@ const routes = [
       {
         path: 'login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/login/index.vue')
-      }, 
-    ]
+        component: () => import(/* webpackChunkName: "user" */ '@/views/login/index.vue'),
+      },
+    ],
   },
   {
-    path: '/home',  
+    path: '/home',
     name: 'home',
-    component: Home
- 
+    component: Home,
   },
   // 其他路由
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router
