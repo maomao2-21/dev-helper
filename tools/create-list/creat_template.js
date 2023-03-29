@@ -143,7 +143,6 @@ const list = template => {
   </template>
 
   <style lang="scss" scoped>
-  ${TabMenu && TabMenu.style}
   </style>
 
   `
@@ -220,14 +219,14 @@ function generateTabMenu(defaultNumber) {
   //#endregion
   `
 
-  const html = `<div class="list-card">
+  const html = `<div class="card_common_style mb-20">
     <a-tabs v-model:activeKey="TabKey">
       <a-tab-pane v-for="item in tabItem" :key="item.value" :tab="item.label" />
     </a-tabs>
   </div>`
 
   const style = `
-  .list-card {
+  .card_common_style {
     padding: 0 20px;
     border-radius: 8px;
     background-color: $listCardBgColor;
@@ -291,7 +290,7 @@ function generateTableRightButton(buttonNumber) {
 }
 //合并一下
 function generateButton(type, buttonNumber) {
-  console.log(`generateButton called with type: ${type}, buttonNumber: ${buttonNumber}`)
+  // console.log(`generateButton called with type: ${type}, buttonNumber: ${buttonNumber}`)
   const num = buttonNumber || 1
   const buttonArray = Array.from({ length: num }, (_, i) => i + 1)
   let buttonType = ''

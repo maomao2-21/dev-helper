@@ -9,6 +9,9 @@ pnpm i  xm-dev-helper -g
 helper 
 
 ```
+
+### 0.0.7
+-  模版的scss部分转移到了公共样式
 ### 0.0.6
 -  bin 支持了一下window 以及input入口文件
 ### 0.0.5

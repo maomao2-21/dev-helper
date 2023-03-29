@@ -15,7 +15,6 @@ const parseAPI = (fileContent, currentDir) => {
   /** import {a,b} 这种导入方式 */
   const currentType = {}
   let regexs = [...regexArray]
-  console.log(regexs.length)
   regexs.forEach(({ regex, name }) => {
     const matchResult = fileContent.match(regex)
 
