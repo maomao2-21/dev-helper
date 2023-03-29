@@ -7,8 +7,8 @@ const currentPath = __dirname // 当前路径
 const parentPath = path.join(currentPath, '..') // 上一层路径
 
 async function commond() {
-  const devProcess = spawn('npm', ['run', 'dev'], { stdio: 'inherit', cwd: parentPath })
-  const toolProcess = spawn('npm', ['run', 'tool'], { stdio: 'inherit', cwd: parentPath })
+  const devProcess = spawn('npm', ['run', 'dev'], { stdio: 'inherit', cwd: parentPath, shell: true })
+  const toolProcess = spawn('npm', ['run', 'tool'], { stdio: 'inherit', cwd: parentPath, shell: true })
 
   await Promise.all([
     new Promise(resolve => devProcess.on('exit', resolve)),

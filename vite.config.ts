@@ -63,7 +63,9 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       rollupOptions: {
-        main: './src/main.ts',
+        input: {
+          main: resolve(__dirname, 'index.html'), // 入口文件
+        },
       },
     },
     /** vite 插件 */

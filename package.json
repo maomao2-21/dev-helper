@@ -1,6 +1,6 @@
 {
   "name": "xm-dev-helper",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "2023 鲜沐前端helper",
   "main": "",
   "author": "鲜沐科技fe",
@@ -8,7 +8,7 @@
     "helper": "bin/helper.js"
   },
   "scripts": {
-    "dev": "vite --mode development & npm run tool",
+    "dev": "vite --mode development ",
     "tool": "node tools/node-server/index.js",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"

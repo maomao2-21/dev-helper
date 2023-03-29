@@ -9,6 +9,8 @@ pnpm i  xm-dev-helper -g
 helper 
 
 ```
+### 0.0.6
+-  bin 支持了一下window 以及input入口文件
 ### 0.0.5
 -  featapifox模型导入
 -  支持windows
